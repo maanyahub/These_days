@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maanya's Artful Days</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f9d5e5, #b8c0ff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #6a4c93;
+            margin-bottom: 20px;
+        }
+        .poem {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        .star {
+            position: absolute;
+            background-color: #ffd700;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: twinkle 1.5s infinite alternate;
+        }
+        .flower {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100%) rotate(0deg); }
+            100% { transform: translateY(1000%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Maanya's Artful Days</h1>
+        <div class="poem">
+            <p>
+            Kollam patterns flow from her hand,<br>
+            Geeta's verses, a spiritual stand.<br>
+            At Chitti's house, she finds her space,<br>
+            Calligraphy strokes with gentle grace.
+            </p>
+            <p>
+            Nights bring rest, days filled with care,<br>
+            Spotify tunes float through the air.<br>
+            Google Home, a gift made with love,<br>
+            Her beauty shines, blessed from above.
+            </p>
+            <p>
+            To her mother, she speaks of me,<br>
+            Our bond grows strong, for all to see.<br>
+            Maanya's world, a canvas bright,<br>
+            Painted with love, from morn to night.
+            </p>
+            <p>
+            In every act, in every way,<br>
+            She crafts a masterpiece each day.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function createStars() {
+            const container = document.querySelector('.container');
+            for (let i = 0; i < 20; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.width = Math.random() * 10 + 5 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 1.5 + 's';
+                container.appendChild(star);
+            }
+        }
+
+        function createFlowers() {
+            const container = document.querySelector('.container');
+            const colors = ['#ff85a2', '#7cffcb', '#ffb347', '#a7c5eb', '#9de3d0'];
+            for (let i = 0; i < 30; i++) {
+                const flower = document.createElement('div');
+                flower.classList.add('flower');
+                flower.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                flower.style.left = Math.random() * 100 + '%';
+                flower.style.animationDuration = Math.random() * 5 + 5 + 's';
+                flower.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(flower);
+            }
+        }
+
+        createStars();
+        createFlowers();
+    </script>
+</body>
+</html>
